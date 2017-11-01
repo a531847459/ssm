@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zj.mydbshiro.dao.IRoleDAO">
+  <!-- 	<resultMap type="News" id="NewsResultMap">
+		<id property="nid" column="nid" />	property表示类属性， column表示列名称
+		<result property="title" column="title" />
+		<result property="pubdate" column="pub_date" />
+		<result property="note" column="note" />
+	</resultMap> -->
+	<sql id="selectMemberBase">
+		SELECT rid FROM member_role
+	</sql>
+	<select id="findById" resultType="String" parameterType="String">
+		<include refid="selectMemberBase"/>
+			<where>
+				mid=#{mid}
+			</where>			
+	</select>
+</mapper>
